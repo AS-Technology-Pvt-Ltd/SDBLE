@@ -29,30 +29,57 @@ class Demo extends PureComponent {
         return;
       }
       if (device) {
-        this.setState({deviceList: [...this.state.deviceList, device.name]});
+        console.log(Object.keys(device));
+
+        /*
+
+["serviceUUIDs", "txPowerLevel", "overflowServiceUUIDs", "serviceData", "isConnectable", "id", "localName", "manufacturerData", "rssi", "mtu", "name", "solicitedServiceUUIDs", "_manager"]
+
+        */
+
+        this.setState({
+          deviceList: [
+            ...this.state.deviceList,
+            {
+              rssi: device.rssi,
+              txPowerLevel: device.txPowerLevel,
+              uuid: device.id,
+              localName: device.name,
+            },
+          ],
+        });
       }
 
-      // bleManager.stopDeviceScan();
+      //   setTimeout(() => {
+      //     bleManager.stopDeviceScan();
+      //   }, 2000);
+      bleManager.stopDeviceScan();
     });
   }
 
   render() {
     const {deviceList} = this.state;
-    let mDeviceList = deviceList.length
-      ? [...new Set(deviceList.filter(item => item !== null))]
-      : [];
     return (
       <View>
         <Text style={{fontSize: 28, textAlign: 'center', marginVertical: 5}}>
           List of Device
         </Text>
-        {mDeviceList.length
-          ? mDeviceList
-              .filter(item => item !== null)
+        {deviceList.length
+          ? deviceList
+              .filter(item => item.localName !== null)
               .map((item, i) => (
-                <Text key={i} style={{fontWeight: '400', marginVertical: 2}}>
-                  {i + 1} . {item}
-                </Text>
+                <View key={i}>
+                  <Text key={i} style={{fontWeight: '600', marginVertical: 2}}>
+                    {i + 1} . {item.localName}
+                  </Text>
+                  <View style={{marginLeft: 10}}>
+                    <Text>UUID:{item.uuid}</Text>
+                    <Text>RSSI : {item.rssi}</Text>
+                    <Text>
+                      TxPowerLevel:{item.txPowerLevel || 'Not Available'}
+                    </Text>
+                  </View>
+                </View>
               ))
           : null}
       </View>
