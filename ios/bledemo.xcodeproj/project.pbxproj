@@ -17,6 +17,7 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* bledemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* bledemoTests.m */; };
+		4FC42A222435F1BD002ED399 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FC42A212435F1BD002ED399 /* ExternalAccessory.framework */; };
 		664364C6E958E918F091C795 /* libPods-bledemo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58B4832ADB47AE7F321A6E5F /* libPods-bledemo-tvOS.a */; };
 		764E507E065CB2CBBF328B16 /* libPods-bledemo-bledemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E48422AA831319EBBDA1DBD6 /* libPods-bledemo-bledemoTests.a */; };
 		AD410F2FC8F2119089A7D1C6 /* libPods-bledemo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B0F7B92BC1CDF2F4AD1496 /* libPods-bledemo-tvOSTests.a */; };
@@ -58,6 +59,8 @@
 		2D02E4901E0B4A5D006451C7 /* bledemo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "bledemo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC3264A930EACA0A882D69E /* Pods-bledemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bledemo.release.xcconfig"; path = "Target Support Files/Pods-bledemo/Pods-bledemo.release.xcconfig"; sourceTree = "<group>"; };
 		40F13C7F2857584F5884B55B /* Pods-bledemo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bledemo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-bledemo-tvOSTests/Pods-bledemo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		4FC42A202435F1BD002ED399 /* bledemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = bledemo.entitlements; path = bledemo/bledemo.entitlements; sourceTree = "<group>"; };
+		4FC42A212435F1BD002ED399 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		5865FDB737FD0BA5BDF9D30E /* Pods-bledemo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bledemo-tvOS.release.xcconfig"; path = "Target Support Files/Pods-bledemo-tvOS/Pods-bledemo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		58B4832ADB47AE7F321A6E5F /* libPods-bledemo-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bledemo-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761B1F5F768DC08E975B76B5 /* Pods-bledemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bledemo.debug.xcconfig"; path = "Target Support Files/Pods-bledemo/Pods-bledemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC42A222435F1BD002ED399 /* ExternalAccessory.framework in Frameworks */,
 				295EF70A8EB2BBCF68E3A52E /* libPods-bledemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +129,7 @@
 		13B07FAE1A68108700A75B9A /* bledemo */ = {
 			isa = PBXGroup;
 			children = (
+				4FC42A202435F1BD002ED399 /* bledemo.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -139,6 +144,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FC42A212435F1BD002ED399 /* ExternalAccessory.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2BF154D0932AB6221836FEE9 /* libPods-bledemo.a */,
@@ -161,7 +167,6 @@
 				1B3D0A0CC7DC49FD8A3E3210 /* Pods-bledemo-tvOSTests.debug.xcconfig */,
 				40F13C7F2857584F5884B55B /* Pods-bledemo-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -629,6 +634,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = bledemo/bledemo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -656,6 +662,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = bledemo/bledemo.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = bledemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

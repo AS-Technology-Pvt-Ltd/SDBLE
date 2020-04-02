@@ -54,6 +54,8 @@ target 'bledemo' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'react-native-ble-plx-swift', :path => '../node_modules/react-native-ble-plx'
+
   target 'bledemoTests' do
     inherit! :complete
     # Pods for testing
