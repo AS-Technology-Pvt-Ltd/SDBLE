@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {BleManager} from 'react-native-ble-plx';
+import {DeviceUUID} from 'device-uuid';
 
 class Demo extends PureComponent {
   constructor() {
@@ -8,6 +9,7 @@ class Demo extends PureComponent {
     this.state = {
       bleManager: new BleManager(),
       deviceList: [],
+      deviceUUID: DeviceUUID,
     };
   }
 
@@ -105,7 +107,6 @@ Source :https://www.radiusnetworks.com/2018-11-19-fundamentals-of-beacon-ranging
     const {deviceList} = this.state;
     const uniqueById = this.uniqueBy('localName');
     let uDevice = deviceList.length ? uniqueById(deviceList) : [];
-    console.log(uDevice);
 
     return (
       <View>
